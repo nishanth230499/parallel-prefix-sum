@@ -63,6 +63,7 @@ int main(int argc, char *argv[]) {
   std::cout << "Average parallel running time: " << total_time / num_rounds
             << std::endl;
   for (size_t i = 0; i < n; i++) {
+    std::cout << i << ":" << seq_scan_A[1] << ", " << pal_scan_A[i] << endl;
     if (seq_scan_A[i] != pal_scan_A[i]) {
       std::cout << "***********************" << std::endl;
       std::cout << "**** Wrong answer! ****" << std::endl;
