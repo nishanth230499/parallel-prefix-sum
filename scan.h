@@ -15,10 +15,10 @@ T scan(T *A, size_t n) {
   
   // note: 1) Extra functions are allowed 
   //       2) DO NOT change the name of this `T scan(T *A, size_t n)`
-  T total = 0;
+  // T total = 0;
   size_t k = 10000;
   size_t chunk_size = (size_t) n/k + 1;
-  T *chunk_sum = (Type *)malloc(k * sizeof(T));
+  T *chunk_sum = (T *)malloc(k * sizeof(T));
 
   parallel_for(0, k, [&](size_t i) {
     chunk_sum[k] = 0;
@@ -27,7 +27,7 @@ T scan(T *A, size_t n) {
     }
   });
 
-  A[chunk_size - 1] = S[0];
+  A[chunk_size - 1] = chunk_sum[0];
   for(size_t i = 1; i < k; i++) {
     if(i + 1 == k) {
       A[n - 1] = A[(i) * chunk_size - 1] + chunk_sum[i];
