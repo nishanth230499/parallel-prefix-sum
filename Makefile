@@ -28,7 +28,7 @@ endif
 
 all: scan
 
-scan: scan.h scan.cpp
+scan: scan.h scan.cpp scan_seq.h
 	$(CC) $(CPPFLAGS) scan.cpp -o scan
 
 a.out:

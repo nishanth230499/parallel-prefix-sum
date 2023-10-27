@@ -8,7 +8,7 @@ using namespace parlay;
  */
 template <typename T>
 T scan(T *A, size_t n) {
-  size_t k = 10000;
+  size_t k = sqrt(n);
   size_t chunk_size = (size_t) n/k + 1;
   T *chunk_sum = (T *)malloc(k * sizeof(T));
 
